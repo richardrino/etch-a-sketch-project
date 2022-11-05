@@ -26,6 +26,7 @@ body {
 
 .grid-row {
   height: var(--grid-square-height);
+  margin-bottom: -1px;
 }
 
 .grid-square {
@@ -33,4 +34,6 @@ body {
   height: var(--grid-square-height);
   border: 1px solid black;
   display: inline-block;
+  margin-left: -1px;
+  margin-top: -1px;
 }
