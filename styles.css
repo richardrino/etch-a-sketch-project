@@ -1,0 +1,36 @@
+:root {
+  --grid-square-width: 25px;
+  --grid-square-height: 25px;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 1000px;
+}
+
+.grid-row {
+  height: var(--grid-square-height);
+}
+
+.grid-square {
+  width: var(--grid-square-width);
+  height: var(--grid-square-height);
+  border: 1px solid black;
+  display: inline-block;
+}
