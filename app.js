@@ -52,21 +52,24 @@ class ClickAndHold {
   }
 }
 
-let isDrawing = false;
-let grid = document.querySelector(".grid");
+/**
+ * Create default 16x16 grid
+ */
+function createDefaultGrid() {
+  let grid = document.querySelector(".grid");
 
-// Create default 16x16 grid
-for (let i = 1; i <= 16; i++) {
-  let gridRow = document.createElement("div");
-  gridRow.classList.add("grid-row");
-  grid.appendChild(gridRow);
+  for (let i = 1; i <= 16; i++) {
+    let gridRow = document.createElement("div");
+    gridRow.classList.add("grid-row");
+    grid.appendChild(gridRow);
 
-  for (let j = 1; j <= 16; j++) {
-    let gridSquare = document.createElement("div");
-    gridSquare.classList.add("grid-square");
-    gridSquare.currentColor = 100;
-    gridRow.appendChild(gridSquare);
-    ClickAndHold.apply(gridSquare, changeColor);
+    for (let j = 1; j <= 16; j++) {
+      let gridSquare = document.createElement("div");
+      gridSquare.classList.add("grid-square");
+      gridSquare.currentColor = 100;
+      gridRow.appendChild(gridSquare);
+      ClickAndHold.apply(gridSquare, changeColor);
+    }
   }
 }
 
@@ -80,3 +83,7 @@ function changeColor(target) {
     target.style.backgroundColor = `rgb(0%, 0%, ${target.currentColor}%)`;
   }
 }
+
+let isDrawing = false;
+
+createDefaultGrid();
