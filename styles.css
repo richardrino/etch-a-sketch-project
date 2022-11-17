@@ -33,7 +33,6 @@ body {
   height: var(--grid-square-height);
   margin-bottom: -1px;
 }
-
 .grid-square {
   width: var(--grid-square-width);
   height: var(--grid-square-height);
@@ -41,4 +40,8 @@ body {
   display: inline-block;
   margin-left: -1px;
   margin-top: -1px;
+}
+
+.blue {
+  background-color: blue;
 }
