@@ -73,6 +73,16 @@ function createDefaultGrid() {
   }
 }
 
+function resetGrid() {
+  let grid = document.querySelector(".grid");
+
+  while (grid.hasChildNodes()) {
+    grid.removeChild(grid.firstChild);
+  }
+
+  createDefaultGrid();
+}
+
 /**
  *
  * @param {Object} target The HTML element to change the background color of
@@ -87,3 +97,6 @@ function changeColor(target) {
 let isDrawing = false;
 
 createDefaultGrid();
+
+let resetButton = document.querySelector("#reset-button");
+resetButton.addEventListener("click", resetGrid);
