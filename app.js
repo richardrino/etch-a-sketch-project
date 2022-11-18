@@ -106,7 +106,16 @@ let gridSizeButton = document.querySelector("#grid-size-button");
 gridSizeButton.addEventListener("click", changeGridSize);
 
 function getGridSize() {
-  let gridSize = Number(prompt("Enter a grid size no larger than 100"));
+  let isValid = false;
+  let gridSize = null;
+
+  while (!isValid) {
+    gridSize = Number(prompt("Enter a grid size no larger than 100"));
+
+    if (gridSize <= 100 && gridSize > 0) {
+      isValid = true;
+    }
+  }
   return gridSize;
 }
 
