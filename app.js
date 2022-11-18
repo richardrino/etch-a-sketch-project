@@ -66,6 +66,7 @@ function createGrid(gridSize) {
     for (let j = 1; j <= gridSize; j++) {
       let gridSquare = document.createElement("div");
       gridSquare.classList.add("grid-square");
+      gridSquare.setAttribute("draggable", false);
       gridSquare.currentColor = 100;
       gridRow.appendChild(gridSquare);
       ClickAndHold.apply(gridSquare, changeColor);
