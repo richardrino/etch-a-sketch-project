@@ -26,26 +26,37 @@ body {
   height: 1000px;
 }
 
+.container--buttons {
+  display: flex;
+  gap: 2rem;
+}
+
 .title {
   margin: 2rem;
 }
 
 .grid {
+  width: 960px;
+  height: 960px;
   margin-bottom: 2rem;
   background-color: #eeeeee;
+  display: flex;
+  flex-direction: column;
 }
 
 .grid-row {
-  height: var(--grid-square-height);
-  margin-bottom: -1px;
+  min-height: 1px;
+  /* margin-bottom: -1px; */
+  display: flex;
+  flex: 1 1 auto;
+  /* border: 1px solid black; */
 }
 .grid-square {
-  width: var(--grid-square-width);
-  height: var(--grid-square-height);
   border: 1px solid black;
   display: inline-block;
-  margin-left: -1px;
-  margin-top: -1px;
+  margin-bottom: -1px;
+  margin-right: -1px;
+  flex: 1 1 auto;
 }
 
 .blue {

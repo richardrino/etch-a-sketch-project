@@ -53,17 +53,17 @@ class ClickAndHold {
 }
 
 /**
- * Create default 16x16 grid
+ * Create grid based on current grid size
  */
-function createDefaultGrid() {
+function createGrid(gridSize) {
   let grid = document.querySelector(".grid");
 
-  for (let i = 1; i <= 16; i++) {
+  for (let i = 1; i <= gridSize; i++) {
     let gridRow = document.createElement("div");
     gridRow.classList.add("grid-row");
     grid.appendChild(gridRow);
 
-    for (let j = 1; j <= 16; j++) {
+    for (let j = 1; j <= gridSize; j++) {
       let gridSquare = document.createElement("div");
       gridSquare.classList.add("grid-square");
       gridSquare.currentColor = 100;
@@ -80,7 +80,7 @@ function resetGrid() {
     grid.removeChild(grid.firstChild);
   }
 
-  createDefaultGrid();
+  createGrid(gridSize);
 }
 
 /**
@@ -95,8 +95,34 @@ function changeColor(target) {
 }
 
 let isDrawing = false;
+let gridSize = 16;
 
-createDefaultGrid();
+createGrid(gridSize);
 
 let resetButton = document.querySelector("#reset-button");
 resetButton.addEventListener("click", resetGrid);
+
+let gridSizeButton = document.querySelector("#grid-size-button");
+gridSizeButton.addEventListener("click", changeGridSize);
+
+function getGridSize() {
+  let gridSize = Number(prompt("Enter a grid size no larger than 100"));
+  return gridSize;
+}
+
+function changeGridSize() {
+  // Get new grid size from user
+  let newGridSize = getGridSize();
+  gridSize = newGridSize;
+
+  // Remove old container
+  let gridContainer = document.querySelector(".container");
+  gridContainer.removeChild(gridContainer.children[1]);
+
+  // Create new grid based on new grid size and add to DOM
+  let grid = document.createElement("div");
+  grid.classList.add("grid");
+  let gridTitle = document.querySelector(".title");
+  gridTitle.after(grid);
+  createGrid(gridSize);
+}
